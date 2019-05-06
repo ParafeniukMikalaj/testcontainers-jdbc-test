@@ -13,7 +13,7 @@ public class TestContainersTest {
     public MariaDBContainer mariaDB = new MariaDBContainer();
 
     @Test
-    public void whitespacesRemovedFromInitScriptText() {
+    public void whitespacesRemovedFromInitScriptWithCStyleComment() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUsername(mariaDB.getUsername());
         dataSource.setPassword(mariaDB.getPassword());
@@ -22,7 +22,7 @@ public class TestContainersTest {
 
         String result = jdbcTemplate.queryForObject("SELECT text FROM test LIMIT 1", String.class);
 
-        Assertions.assertEquals("a     b", result);
+        Assertions.assertEquals("a     b", result, "Whitespace should be preserved");
     }
 
 }

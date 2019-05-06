@@ -7,7 +7,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
-public class TestContainersTest {
+public class WhitespaceTest {
 
     @Container
     public MariaDBContainer mariaDB = new MariaDBContainer();
